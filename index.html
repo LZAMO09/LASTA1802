@@ -1,0 +1,58 @@
+    const datos = {
+        feliz: [
+            {t: "Tu alegría no es casualidad, es el fruto de un corazón que encuentra propósito en servir a los demás. ¡Disfruta este brillo!", c: "Salmos 16:11"},
+            {t: "Que esa chispa que te caracteriza siga iluminando tus días en la clínica y en la cancha. ¡Eres luz, Ana Sofía!", c: "Filipenses 4:4"},
+            {t: "Tu felicidad es el reflejo de la nobleza que llevas dentro desde siempre. Celébrala y compártela.", c: "Salmos 118:24"},
+            {t: "Hay una fuerza especial en tu sonrisa que renueva a quienes te rodean. ¡Qué bendición verte así!", c: "Proverbios 15:13"},
+            {t: "Disfruta plenamente este momento de gozo; es el premio a tu entrega y a tu fe inquebrantable.", c: "Salmos 126:3"}
+        ],
+        triste: [
+            {t: "Incluso los mejores atletas necesitan pausar. Dios está restaurando tu corazón con la misma delicadeza con la que tú sanas a otros.", c: "Salmos 34:18"},
+            {t: "Permítete sentir y descansar. Tu valor no disminuye en los días grises; solo te estás preparando para un nuevo amanecer.", c: "Mateo 5:4"},
+            {t: "En los momentos de silencio, recuerda que tu esencia sigue siendo fuerte y pura. No estás sola en este proceso.", c: "Josué 1:9"},
+            {t: "Como en una recuperación física, el alma también tiene sus tiempos. Ten paciencia contigo misma, Ana Sofía.", c: "Salmos 147:3"},
+            {t: "Tu nobleza brilla incluso en la vulnerabilidad. Mañana será una nueva oportunidad para que tu luz vuelva a salir.", c: "Lamentaciones 3:22-23"}
+        ],
+        enojada: [
+            {t: "No permitas que una situación externa opaque tu paz interior. Eres dueña de tu serenidad y de tu gran corazón.", c: "Proverbios 14:29"},
+            {t: "El enojo es energía; transfórmala en la disciplina que usas para el tenis. Respira y recupera tu centro.", c: "Santiago 1:19"},
+            {t: "Tu luz es demasiado valiosa para que se apague por un momento de ira. Suelta lo que te pesa y vuelve a ti.", c: "Colosenses 3:15"},
+            {t: "La calma es tu mejor aliada ahora. Confía en que tu carácter noble siempre sabrá encontrar la salida correcta.", c: "Efesios 4:26"},
+            {t: "Mantén tu mente clara y tu espíritu tranquilo. Tu capacidad de servir es más grande que cualquier conflicto.", c: "Mateo 5:9"}
+        ],
+        frustrada: [
+            {t: "Un set perdido no define el partido. Si algo no salió como esperabas en tus estudios o metas, recuerda que tu esfuerzo ya vale oro.", c: "Gálatas 6:9"},
+            {t: "La frustración es solo un escalón hacia la maestría. Sigue adelante con la tenacidad que te define desde hace años.", c: "Romanos 5:3-4"},
+            {t: "Confía en el proceso de aprendizaje. Como en la fisioterapia, los grandes resultados requieren tiempo y constancia.", c: "Eclesiastés 3:1"},
+            {t: "Eres una mujer de retos. Que este obstáculo no te detenga, sino que te impulse a encontrar una nueva estrategia.", c: "Isaías 40:31"},
+            {t: "Tu valor no depende de un resultado inmediato, sino de la dedicación que pones en todo lo que haces.", c: "Filipenses 1:6"}
+        ],
+        nerviosa: [
+            {t: "Respira profundo. Tu preparación es sólida y tu fe es tu ancla. Todo fluirá como debe ser, Ana Sofía.", c: "Isaías 41:10"},
+            {t: "Esos nervios son la prueba de que te importa lo que haces. Confía en tus manos y en tu conocimiento.", c: "Filipenses 4:6-7"},
+            {t: "Recuerda la calma que sientes en la cancha cuando estás concentrada. Esa misma paz te acompaña hoy.", c: "Juan 14:27"},
+            {t: "Dios camina contigo en cada examen y en cada desafío. No hay nada que temer si vas de Su mano.", c: "Salmos 27:1"},
+            {t: "Enfócate en el presente, un paso a la vez. Tienes la capacidad y la gracia para superar este momento.", c: "Mateo 6:34"}
+        ],
+        desmotivada: [
+            {t: "Mira hacia atrás y ve todo lo que has superado. Eres una mujer fuerte, noble y llena de propósitos hermosos.", c: "Filipenses 4:13"},
+            {t: "Tu labor como futura fisioterapeuta es una bendición para el mundo. No olvides por qué empezaste este camino.", c: "1 Corintios 15:58"},
+            {t: "A veces el cansancio nubla la visión, pero tu chispa sigue ahí. Tómate un respiro y vuelve a empezar mañana.", c: "Salmos 121:1-2"},
+            {t: "Tu dedicación ha inspirado a muchos. No subestimes el impacto de tu vida y de tu entrega diaria.", c: "Mateo 5:16"},
+            {t: "Recuerda que Dios renueva tus fuerzas como las del águila. Tu potencial es infinito, confía.", c: "Isaías 40:29"}
+        ],
+        emocionada: [
+            {t: "¡Qué maravilla verte brillar con esa ilusión! Disfruta cada segundo de este nuevo logro o noticia.", c: "Salmos 150:6"},
+            {t: "Tu entusiasmo es el motor de grandes cosas. Sigue persiguiendo tus sueños con esa pasión que te hace única.", c: "Romanos 12:11"},
+            {t: "Celebra este momento con gratitud. Te mereces cada alegría por el amor que pones en tu servicio a otros.", c: "1 Tesalonicenses 5:18"},
+            {t: "Que esta emoción sea el impulso para seguir creciendo en tu fe y en tu carrera. ¡Vas por excelente camino!", c: "Salmos 37:4"},
+            {t: "Tu energía positiva es un regalo para el mundo. ¡Vive este momento al máximo, Ana Sofía!", c: "Juan 10:10"}
+        ],
+        decepcionada: [
+            {t: "Las personas pueden fallar, pero tu esencia permanece intacta. Tu capacidad de amar es tu mayor fortaleza.", c: "Salmos 37:5"},
+            {t: "No dejes que una decepción cierre tu corazón. El mundo necesita tu nobleza y tu disposición para ayudar.", c: "Romanos 8:28"},
+            {t: "Como en el deporte, a veces hay jugadas inesperadas. Mantén la frente en alto y sigue fiel a tus valores.", c: "Proverbios 4:23"},
+            {t: "Tu identidad no depende de lo que otros hagan o digan, sino de quién eres tú ante los ojos de Dios.", c: "1 Samuel 16:7"},
+            {t: "Sana tus heridas con la misma paciencia que enseñas a tus pacientes. El tiempo y la fe lo restauran todo.", c: "Apocalipsis 21:4"}
+        ]
+    };
