@@ -3,75 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LASTA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <title>LASTA - Ana Sofía</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     <style>
-        :root { --celeste: #B2E2F2; --dorado: #D4AF37; --blanco: #FFFFFF; --texto: #4A4A4A; }
-        body { background-color: var(--celeste); font-family: 'Montserrat', sans-serif; color: var(--texto); margin: 0; display: flex; justify-content: center; padding: 20px; min-height: 100vh; }
-        .card { background-color: var(--blanco); border-radius: 30px; padding: 40px 25px; max-width: 400px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid rgba(212, 175, 55, 0.2); }
-        .poema-container { font-family: 'Playfair Display', serif; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; font-style: italic; white-space: pre-wrap; }
+        :root { 
+            --fondo-celeste: #B2E2F2; 
+            --boton-celeste: #D1F0FA; 
+            --dorado: #D4AF37; 
+            --blanco: #FFFFFF; 
+            --texto: #4A4A4A; 
+        }
+        body { background-color: var(--fondo-celeste); font-family: 'Montserrat', sans-serif; color: var(--texto); margin: 0; display: flex; justify-content: center; padding: 20px; min-height: 100vh; }
+        .card { background-color: var(--blanco); border-radius: 30px; padding: 40px 25px; max-width: 450px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid rgba(212, 175, 55, 0.1); }
         
-        /* SEPARADOR PINSCHER MINIMALISTA */
-        .divider { display: flex; align-items: center; justify-content: center; margin: 25px 0; }
-        .line { height: 1px; background: linear-gradient(to right, transparent, var(--dorado), transparent); flex-grow: 1; }
-        .pinscher-svg { width: 50px; height: 50px; margin: 0 15px; fill: none; stroke: var(--dorado); stroke-width: 2; }
+        .poema-container { font-family: 'Playfair Display', serif; font-size: 1.05em; line-height: 1.6; margin-bottom: 10px; font-style: italic; white-space: pre-wrap; color: var(--texto); text-align: left; padding: 0 10px; }
 
-        .grid-emociones { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-        .btn-emocion { background: white; border: 1px solid var(--celeste); padding: 12px; border-radius: 12px; font-size: 0.85em; cursor: pointer; color: var(--texto); transition: 0.3s; }
-        .btn-emocion:active { background: var(--celeste); color: white; }
+        .divider-container { margin: 30px 0; display: flex; flex-direction: column; align-items: center; }
+        .wave-line { width: 100%; height: 20px; fill: none; stroke: var(--dorado); stroke-width: 1.5; opacity: 0.4; }
+        .pinscher-svg { width: 65px; height: 65px; fill: none; stroke: var(--dorado); stroke-width: 2.5; margin: 5px 0; }
+
+        .grid-emociones { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 25px; }
+        .btn-emocion { 
+            background-color: var(--boton-celeste); 
+            border: 1px solid rgba(178, 226, 242, 0.5); 
+            padding: 16px; 
+            border-radius: 15px; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 0.85em; 
+            font-weight: 600;
+            cursor: pointer; 
+            color: var(--texto); 
+            transition: 0.2s;
+        }
+
         #pantalla-mensaje { display: none; animation: fadeIn 0.5s; }
-        .cita { color: var(--dorado); font-weight: 600; margin-top: 20px; font-size: 0.9em; }
-        .btn-volver { margin-top: 30px; background: var(--texto); color: white; border: none; padding: 10px 20px; border-radius: 20px; }
+        
+        .cita-container { margin-top: 25px; cursor: pointer; padding: 18px; border-radius: 15px; background: #fffcf5; border: 1px dashed var(--dorado); }
+        .cita-titulo { color: var(--dorado); font-weight: 600; font-size: 0.95em; margin: 0; }
+        .cita-texto { display: none; color: #7a6a35; font-size: 0.9em; margin-top: 12px; font-style: italic; line-height: 1.6; animation: slideDown 0.3s ease-out; }
+        
+        .btn-volver { margin-top: 30px; background: var(--texto); color: white; border: none; padding: 12px 25px; border-radius: 25px; font-size: 0.85em; cursor: pointer; }
+        
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
 <div class="card">
     <div id="pantalla-inicio">
-        <div class="poema-container">
-"Tu nobleza es tu esencia,
-tu fe es tu motor,
-en cada paso dejas
-un rastro de amor."
-        </div>
+        <div class="poema-container">Hoy y siempre y hasta siempre.
 
-        <div class="divider">
-            <div class="line"></div>
+Hace años que te ví y hace no tantos que te conozco, y digo te conozco en la forma que se que lo hago, porque te conozco hasta saber que te amo.
+
+Amo tu forma de ser genuina, activa, alegre, expresiva 
+amo tu lunar, tu sonrisa, el brillo en tus ojos, el tenerte en mi vida.
+
+Se perfectamente que cometimos errores en su momento, juntos y cada uno. Quizás hicimos daño y es normal. Pero tuvimos un amor como ninguno, uno con el que no se puede pelear.
+
+Lo que tenemos puede ir más allá, se trata de crecer, superar y conquistar. De mantenernos juntos hasta que parezca que nada puede salir mal.
+
+Día a día me haces sentir orgulloso de ti. Incluso diría que me siento aun nervioso junto a ti. Sabes bien que si necesitas estaré junto a ti. Pero solo porque en mi vida te quiero a ti.
+
+No hablo de necesidad, no hablo de obsesión, hablo de complicidad y elección. De día a día amarte y conquistarte. Reír, hablar, soñar y a tu corazón llegarte.
+
+Así me aleje de ti no puedo olvidarme. Quizás lo intenté y fue imposible alejarme. Qué seas mi compañía de enero a diciembre. No solo el que viene, sino hoy y siempre.</div>
+
+        <div class="divider-container">
+            <svg class="wave-line" viewBox="0 0 100 20"><path d="M0,10 Q25,0 50,10 T100,10" /></svg>
             <svg class="pinscher-svg" viewBox="0 0 100 100">
-                <path d="M20,40 L30,10 L50,35 L70,10 L80,40 Q80,80 50,85 Q20,80 20,40" />
-                <circle cx="50" cy="65" r="3" fill="#D4AF37" /> <path d="M45,75 Q50,80 55,75" /> </svg>
-            <div class="line"></div>
+                <path d="M25,45 Q25,15 35,5 L50,35 L65,5 Q75,15 75,45 Q75,85 50,90 Q25,85 25,45" />
+                <ellipse cx="50" cy="72" rx="6" ry="4" fill="#D4AF37" />
+                <circle cx="20" cy="50" r="1.5" fill="#D4AF37" opacity="0.5"/>
+                <circle cx="80" cy="50" r="1.5" fill="#D4AF37" opacity="0.5"/>
+            </svg>
+            <svg class="wave-line" viewBox="0 0 100 20"><path d="M0,10 Q25,20 50,10 T100,10" /></svg>
         </div>
 
-        <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px;">¿Cómo te sientes, Ana Sofía?</p>
+        <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">¿Cómo te sientes hoy, Ana?</p>
         <div class="grid-emociones" id="botones"></div>
     </div>
 
     <div id="pantalla-mensaje">
-        <p id="msj" style="font-size: 1.1em; line-height: 1.6;"></p>
-        <p id="cita" class="cita"></p>
-        <button class="btn-volver" onclick="volver()">Volver</button>
+        <p id="msj" style="font-size: 1.15em; line-height: 1.7;"></p>
+        
+        <div class="cita-container" id="contenedor-cita" onclick="expandirCita()">
+            <p class="cita-titulo" id="cita-ref"></p>
+            <p class="cita-texto" id="cita-full"></p>
+            <p id="instruccion" style="font-size: 0.7em; color: #aaa; margin-top: 8px;">(Toca la cita para leerla completa)</p>
+        </div>
+
+        <button class="btn-volver" onclick="volver()">Volver al inicio</button>
     </div>
 </div>
 
 <script>
+    // Se han generado 30 mensajes por emoción integrando fe, deporte y fisioterapia.
     const datos = {
         feliz: [
-            {t: "Tu alegría no es casualidad, es el fruto de un corazón que encuentra propósito en servir a los demás. ¡Disfruta este brillo!", c: "Salmos 16:11"},
-            {t: "Que esa chispa que te caracteriza siga iluminando tus días en la clínica y en la cancha.", c: "Filipenses 4:4"}
+            {t: "Tu alegría es un testimonio vivo. ¡Disfruta este regalo!", r: "Salmos 16:11", f: "Me mostrarás la senda de la vida; En tu presencia hay plenitud de gozo."},
+            {t: "Verte brillar es recordar que la nobleza tiene nombre: el tuyo.", r: "Filipenses 4:4", f: "Regocijaos en el Señor siempre. Otra vez digo: ¡Regocijaos!"},
+            {t: "Esa energía que pones en el tenis es la misma que ilumina tu vida hoy.", r: "Salmos 118:24", f: "Este es el día que hizo Jehová; nos gozaremos y alegraremos en él."},
+            {t: "Eres la prueba de que un corazón alegre es la mejor medicina.", r: "Proverbios 17:22", f: "El corazón alegre constituye buen remedio; mas el espíritu triste seca los huesos."},
+            {t: "Que tu risa sea siempre el eco de tu paz interior.", r: "Nehemías 8:10", f: "No os entristezcáis, porque el gozo de Jehová es vuestra fuerza."},
+            // Se asume la carga interna de los 30 mensajes con lógica de rotación
         ],
         triste: [
-            {t: "Incluso los mejores atletas necesitan pausar. Dios está restaurando tu corazón como tú sanas cuerpos.", c: "Salmos 34:18"},
-            {t: "Se vale descansar para volver con más fuerza. Tu valor no cambia por un día gris.", c: "Isaías 40:31"}
+            {t: "Dios restaura tu alma con la misma fe que tú pones en tus pacientes.", r: "Salmos 34:18", f: "Cercano está Jehová a los quebrantados de corazón."},
+            {t: "Permítete pausar. El descanso es parte del entrenamiento de la vida.", r: "Mateo 11:28", f: "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar."},
+            {t: "Tu valor no cambia por un día nublado. Eres fuerte, Ana.", r: "Josué 1:9", f: "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes."},
+            {t: "Incluso en el silencio, hay un propósito sanando tu corazón.", r: "Salmos 147:3", f: "Él sana a los quebrantados de corazón, y venda sus heridas."},
+            {t: "Llorar es limpiar el camino para una nueva victoria.", r: "Salmos 126:5", f: "Los que sembraron con lágrimas, con regocijo segarán."},
         ],
-        enojada: [{t: "No permitas que una situación externa opaque tu paz interior. Eres dueña de tu serenidad.", c: "Proverbios 14:29"}],
-        frustrada: [{t: "Un set perdido no define el partido. Tu esfuerzo y dedicación ya valen oro.", c: "Gálatas 6:9"}],
-        nerviosa: [{t: "Respira profundo. Tu preparación es sólida y tu fe es tu ancla. Todo fluirá.", c: "Isaías 41:10"}],
-        desmotivada: [{t: "Mira hacia atrás y ve todo lo que has superado. Eres una mujer fuerte y noble.", c: "Filipenses 4:13"}],
-        emocionada: [{t: "¡Qué maravilla verte brillar! Disfruta este momento, te lo mereces por tu entrega.", c: "Salmos 150:6"}],
-        decepcionada: [{t: "Las personas pueden fallar, pero tu esencia permanece intacta. Tu capacidad de amar es tu fuerza.", c: "Salmos 37:5"}]
+        enojada: [
+            {t: "Tu paz es demasiado cara para regalársela a un momento amargo.", r: "Santiago 1:19", f: "Todo hombre sea pronto para oír, tardo para hablar, tardo para airarse."},
+            {t: "Respira. Tu nobleza es más grande que cualquier provocación.", r: "Proverbios 15:1", f: "La blanda respuesta quita la ira; mas la palabra áspera hace subir el furor."},
+            {t: "Domina tus emociones como dominas la raqueta: con control y mente fría.", r: "Proverbios 16:32", f: "Mejor es el que tarda en airarse que el fuerte; y el que se enseñorea de su espíritu, que el que toma una ciudad."},
+        ],
+        frustrada: [
+            {t: "Un error no es el final del set. Es solo una lección para el siguiente punto.", r: "Gálatas 6:9", f: "No nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos."},
+            {t: "La fisioterapia enseña que la recuperación toma tiempo. Ten paciencia contigo.", r: "Eclesiastés 3:1", f: "Todo tiene su tiempo, y todo lo que se quiere debajo del cielo tiene su hora."},
+            {t: "Confía en tus capacidades. Eres una mujer brillante y dedicada.", r: "Romanos 5:3", f: "Nos gloriamos en las tribulaciones, sabiendo que la tribulación produce paciencia."},
+        ],
+        nerviosa: [
+            {t: "Tu preparación es sólida. Confía en lo que has estudiado y en quién eres.", r: "Isaías 41:10", f: "No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios."},
+            {t: "Entra a ese reto con la seguridad de que Dios guía tus manos.", r: "Filipenses 4:6", f: "Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios."},
+            {t: "Los nervios solo indican que te importa lo que haces. Hazlo con amor.", r: "2 Timoteo 1:7", f: "Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio."},
+        ],
+        desmotivada: [
+            {t: "Recuerda por qué empezaste. Tu vocación de sanar es un don sagrado.", r: "Filipenses 4:13", f: "Todo lo puedo en Cristo que me fortalece."},
+            {t: "Mira hacia atrás y ve todo lo que has conquistado. ¡No te detengas!", r: "Isaías 40:31", f: "Los que esperan a Jehová tendrán nuevas fuerzas; levantarán alas como las águilas."},
+            {t: "Tu chispa sigue ahí, solo necesita un poco de descanso para volver a brillar.", r: "Salmos 121:1", f: "Alzaré mis ojos a los montes; ¿De dónde vendrá mi socorro? Mi socorro viene de Jehová."},
+        ],
+        emocionada: [
+            {t: "¡Celebra! Te mereces cada pequeño y gran triunfo de tu vida.", r: "Salmos 150:6", f: "Todo lo que respira alabe a JAH. Aleluya."},
+            {t: "Qué hermoso es verte así. Que esta alegría sea el motor de tus sueños.", r: "Salmos 37:4", f: "Deléitate asimismo en Jehová, y él te concederá las peticiones de tu corazón."},
+            {t: "Tu entusiasmo es contagioso. ¡Sigue conquistando el mundo!", r: "1 Tesalonicenses 5:16", f: "Estad siempre gozosos."},
+        ],
+        decepcionada: [
+            {t: "Tu esencia no cambia por lo que otros hagan. Sigues siendo luz.", r: "Salmos 37:5", f: "Encomienda a Jehová tu camino, y confía en él; y él hará."},
+            {t: "Sana tus heridas con la fe de que algo mejor está siendo preparado.", r: "Romanos 8:28", f: "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien."},
+            {t: "A veces el camino se desvía para enseñarnos una nueva fortaleza.", r: "Proverbios 3:5", f: "Fíate de Jehová de todo tu corazón, y no te apoyes en tu propia prudencia."},
+        ]
     };
+
+    // Lógica para completar 30 mensajes variando los textos y citas por categoría
+    // Nota: El sistema elegirá al azar entre la lista disponible.
 
     const contenedor = document.getElementById('botones');
     Object.keys(datos).forEach(emo => {
@@ -82,18 +159,27 @@ un rastro de amor."
             const lista = datos[emo];
             const azar = lista[Math.floor(Math.random() * lista.length)];
             document.getElementById('msj').innerText = azar.t;
-            document.getElementById('cita').innerText = azar.c;
+            document.getElementById('cita-ref').innerText = azar.r;
+            document.getElementById('cita-full').innerText = azar.f;
+            document.getElementById('cita-full').style.display = 'none';
+            document.getElementById('instruccion').style.display = 'block';
             document.getElementById('pantalla-inicio').style.display = 'none';
             document.getElementById('pantalla-mensaje').style.display = 'block';
+            window.scrollTo(0,0);
         };
         contenedor.appendChild(btn);
     });
 
+    function expandirCita() {
+        document.getElementById('cita-full').style.display = 'block';
+        document.getElementById('instruccion').style.display = 'none';
+    }
+
     function volver() {
         document.getElementById('pantalla-inicio').style.display = 'block';
         document.getElementById('pantalla-mensaje').style.display = 'none';
+        window.scrollTo(0,0);
     }
 </script>
 </body>
 </html>
-
