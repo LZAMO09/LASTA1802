@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LASTA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <style>
+        :root { --celeste: #B2E2F2; --dorado: #D4AF37; --blanco: #FFFFFF; --texto: #4A4A4A; }
+        body { background-color: var(--celeste); font-family: 'Montserrat', sans-serif; color: var(--texto); margin: 0; display: flex; justify-content: center; padding: 20px; min-height: 100vh; }
+        .card { background-color: var(--blanco); border-radius: 30px; padding: 40px 25px; max-width: 400px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid rgba(212, 175, 55, 0.2); }
+        .poema-container { font-family: 'Playfair Display', serif; font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; font-style: italic; white-space: pre-wrap; }
+        
+        /* SEPARADOR PINSCHER MINIMALISTA */
+        .divider { display: flex; align-items: center; justify-content: center; margin: 25px 0; }
+        .line { height: 1px; background: linear-gradient(to right, transparent, var(--dorado), transparent); flex-grow: 1; }
+        .pinscher-svg { width: 50px; height: 50px; margin: 0 15px; fill: none; stroke: var(--dorado); stroke-width: 2; }
+
+        .grid-emociones { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .btn-emocion { background: white; border: 1px solid var(--celeste); padding: 12px; border-radius: 12px; font-size: 0.85em; cursor: pointer; color: var(--texto); transition: 0.3s; }
+        .btn-emocion:active { background: var(--celeste); color: white; }
+        #pantalla-mensaje { display: none; animation: fadeIn 0.5s; }
+        .cita { color: var(--dorado); font-weight: 600; margin-top: 20px; font-size: 0.9em; }
+        .btn-volver { margin-top: 30px; background: var(--texto); color: white; border: none; padding: 10px 20px; border-radius: 20px; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div id="pantalla-inicio">
+        <div class="poema-container">
+"Tu nobleza es tu esencia,
+tu fe es tu motor,
+en cada paso dejas
+un rastro de amor."
+        </div>
+
+        <div class="divider">
+            <div class="line"></div>
+            <svg class="pinscher-svg" viewBox="0 0 100 100">
+                <path d="M20,40 L30,10 L50,35 L70,10 L80,40 Q80,80 50,85 Q20,80 20,40" />
+                <circle cx="50" cy="65" r="3" fill="#D4AF37" /> <path d="M45,75 Q50,80 55,75" /> </svg>
+            <div class="line"></div>
+        </div>
+
+        <p style="font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px;">¿Cómo te sientes, Ana Sofía?</p>
+        <div class="grid-emociones" id="botones"></div>
+    </div>
+
+    <div id="pantalla-mensaje">
+        <p id="msj" style="font-size: 1.1em; line-height: 1.6;"></p>
+        <p id="cita" class="cita"></p>
+        <button class="btn-volver" onclick="volver()">Volver</button>
+    </div>
+</div>
+
+<script>
+    const datos = {
+        feliz: [
+            {t: "Tu alegría no es casualidad, es el fruto de un corazón que encuentra propósito en servir a los demás. ¡Disfruta este brillo!", c: "Salmos 16:11"},
+            {t: "Que esa chispa que te caracteriza siga iluminando tus días en la clínica y en la cancha.", c: "Filipenses 4:4"}
+        ],
+        triste: [
+            {t: "Incluso los mejores atletas necesitan pausar. Dios está restaurando tu corazón como tú sanas cuerpos.", c: "Salmos 34:18"},
+            {t: "Se vale descansar para volver con más fuerza. Tu valor no cambia por un día gris.", c: "Isaías 40:31"}
+        ],
+        enojada: [{t: "No permitas que una situación externa opaque tu paz interior. Eres dueña de tu serenidad.", c: "Proverbios 14:29"}],
+        frustrada: [{t: "Un set perdido no define el partido. Tu esfuerzo y dedicación ya valen oro.", c: "Gálatas 6:9"}],
+        nerviosa: [{t: "Respira profundo. Tu preparación es sólida y tu fe es tu ancla. Todo fluirá.", c: "Isaías 41:10"}],
+        desmotivada: [{t: "Mira hacia atrás y ve todo lo que has superado. Eres una mujer fuerte y noble.", c: "Filipenses 4:13"}],
+        emocionada: [{t: "¡Qué maravilla verte brillar! Disfruta este momento, te lo mereces por tu entrega.", c: "Salmos 150:6"}],
+        decepcionada: [{t: "Las personas pueden fallar, pero tu esencia permanece intacta. Tu capacidad de amar es tu fuerza.", c: "Salmos 37:5"}]
+    };
+
+    const contenedor = document.getElementById('botones');
+    Object.keys(datos).forEach(emo => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-emocion';
+        btn.innerText = emo.charAt(0).toUpperCase() + emo.slice(1);
+        btn.onclick = () => {
+            const lista = datos[emo];
+            const azar = lista[Math.floor(Math.random() * lista.length)];
+            document.getElementById('msj').innerText = azar.t;
+            document.getElementById('cita').innerText = azar.c;
+            document.getElementById('pantalla-inicio').style.display = 'none';
+            document.getElementById('pantalla-mensaje').style.display = 'block';
+        };
+        contenedor.appendChild(btn);
+    });
+
+    function volver() {
+        document.getElementById('pantalla-inicio').style.display = 'block';
+        document.getElementById('pantalla-mensaje').style.display = 'none';
+    }
+</script>
+</body>
+</html>
+
